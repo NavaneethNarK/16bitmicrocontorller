@@ -1,10 +1,10 @@
 module RAM4K(in,load,address,clk,out);
-    input [7:0] in;
+    input [15:0] in;
     input [11:0] address;
     input load,clk;
-    output [7:0] out;
+    output [15:0] out;
     wire [7:0] loadw;
-    wire [7:0] outw [7:0];
+    wire [15:0] outw [7:0];
 
     demux18 demux18in(.in(load),.sel(address[11:9]),.out(loadw));
 

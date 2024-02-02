@@ -1,8 +1,8 @@
 module mux81(in,sel,out);
-    input [7:0] in [7:0];
+    input [15:0] in [7:0];
     input [2:0] sel;
-    output [7:0] out;
-    reg [7:0] temp;
+    output [15:0] out;
+    reg [15:0] temp;
 
     always@(*) begin
         case(sel)
