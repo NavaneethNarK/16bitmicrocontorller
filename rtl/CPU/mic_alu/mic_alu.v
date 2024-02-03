@@ -1,5 +1,5 @@
 module mic_alu(
-     x,y,zx,zy,nx,ny,f,no,out,nv,zr
+     x,y,zx,nx,zy,ny,f,no,out,nv,zr
 );
     input  [15:0] x,y;
     input  zx,zy,nx,ny,f,no;

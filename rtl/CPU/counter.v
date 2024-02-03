@@ -1,8 +1,8 @@
 module counter(in,reset,load,inc,clk,out);
-    input [15:0] in;
+    input [14:0] in;
     input reset,load,inc,clk;
-    output [15:0] out;
-    reg [15:0] temp;
+    output [14:0] out;
+    reg [14:0] temp;
     always@(posedge clk) begin
         if(reset)
             temp <= 16'h0000;
