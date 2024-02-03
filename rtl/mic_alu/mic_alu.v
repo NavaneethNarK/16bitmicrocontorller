@@ -1,9 +1,10 @@
 module mic_alu(
-     x,y,zx,zy,nx,ny,f,no,out
+     x,y,zx,zy,nx,ny,f,no,out,nv,zr
 );
     input  [15:0] x,y;
-    output [15:0] out;
     input  zx,zy,nx,ny,f,no;
+    output [15:0] out;
+    output nv,zr;
     wire [15:0] zxo,zyo,nxo,nyo,fo;
 
     zg  zxg(.din(x),.z(zx),.dout(zxo));
@@ -15,5 +16,8 @@ module mic_alu(
     fg  fxyg(.xin(nxo),.yin(nyo),.f(f),.dout(fo));
 
     ng  nxyg(.din(fo),.n(no),.dout(out));
+
+    assign nv = out[15];
+    assign zr = ~(|out);
 
 endmodule
