@@ -1,6 +1,7 @@
-module microcontroller(programIN,LMin,reset,clk);
+module microcontroller(programIN,LMin,reset,clk,p0,p1,p2,p3);
     input [15:0] programIN;
     input LMin,reset,clk;
+    output [15:0] p0,p1,p2,p3;
     wire [15:0] rom_data, instruction, ram_r_data, ram_w_data;
     wire [14:0] rom_address, PC, ram_address;
     wire rom_write, ram_write;
@@ -14,7 +15,7 @@ module microcontroller(programIN,LMin,reset,clk);
                             .address(rom_address),
                             .LMout(rom_write));
     
-    mem16k      ROM1(       .in(rom_data),
+    rom16k      ROM1(       .in(rom_data),
                             .load(rom_write),
                             .address(rom_address),
                             .clk(clk),
@@ -29,9 +30,13 @@ module microcontroller(programIN,LMin,reset,clk);
                             .addressM(ram_address),
                             .PC(PC));
 
-    mem16k      RAM1(       .in(ram_w_data),
+    ram16k      RAM1(       .in(ram_w_data),
                             .load(ram_write),
                             .address(ram_address),
                             .clk(clk),
-                            .out(ram_r_data));
+                            .out(ram_r_data),
+                            .p0(p0),
+                            .p1(p1),
+                            .p2(p2),
+                            .p3(p3));
 endmodule
