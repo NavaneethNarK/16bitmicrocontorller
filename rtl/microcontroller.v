@@ -14,7 +14,7 @@ module microcontroller(programIN,LMin,reset,clk);
                             .address(rom_address),
                             .LMout(rom_write));
     
-    RAM16K      ROM1(       .in(rom_data),
+    mem16k      ROM1(       .in(rom_data),
                             .load(rom_write),
                             .address(rom_address),
                             .clk(clk),
@@ -29,7 +29,7 @@ module microcontroller(programIN,LMin,reset,clk);
                             .addressM(ram_address),
                             .PC(PC));
 
-    RAM16K      RAM1(       .in(ram_w_data),
+    mem16k      RAM1(       .in(ram_w_data),
                             .load(ram_write),
                             .address(ram_address),
                             .clk(clk),

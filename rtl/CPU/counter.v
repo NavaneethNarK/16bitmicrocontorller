@@ -5,7 +5,7 @@ module counter(in,reset,load,inc,clk,out);
     reg [14:0] temp;
     always@(posedge clk) begin
         if(reset)
-            temp <= 15'h7fff;
+            temp <= 15'h0000;
         else if (load) 
             temp <= in;
         else if (inc)
